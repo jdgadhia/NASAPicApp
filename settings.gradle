@@ -1,0 +1,2 @@
+rootProject.name = "NASA Picture App"
+include ':app'
