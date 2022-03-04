@@ -2,19 +2,16 @@ package com.exam.nasapictureapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import androidx.lifecycle.Observer
-import com.exam.nasapictureapp.R
 import com.exam.nasapictureapp.adapters.ImagePagerAdepter
 import com.exam.nasapictureapp.databinding.ActivityImageDetailsBinding
-import com.exam.nasapictureapp.databinding.ActivityMainBinding
 import com.exam.nasapictureapp.di.provideGson
 import com.exam.nasapictureapp.model.ImagesDetails
 import com.exam.nasapictureapp.viewmodels.ImageDetailsViewModel
-import com.exam.nasapictureapp.viewmodels.ImagesViewModel
 import com.google.gson.reflect.TypeToken
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import android.view.MenuItem
+
 
 class ImageDetailsActivity : AppCompatActivity() {
     lateinit var binding: ActivityImageDetailsBinding
@@ -23,6 +20,8 @@ class ImageDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityImageDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+
         fetchImagesFromIntent()
         setViewPagerData()
     }
@@ -52,5 +51,20 @@ class ImageDetailsActivity : AppCompatActivity() {
                 binding.vpImages.visibility = View.GONE
             }
         })
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        supportFinishAfterTransition()
     }
 }

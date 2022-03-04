@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.exam.nasapictureapp.R
 import com.exam.nasapictureapp.interfaces.ItemClickEvent
 import com.exam.nasapictureapp.model.ImagesDetails
@@ -25,11 +26,17 @@ class ImageGridAdepter(
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        Glide.with(activity).load(images[position].url).into(holder.ivImage)
+        Glide.with(activity)
+            .load(images[position].url)
+            .apply(
+                RequestOptions.placeholderOf(R.drawable.ic_image_loading)
+                    .error(R.drawable.ic_image_loading)
+            )
+            .into(holder.ivImage)
         holder.tvDate.text = images[position].date
 
         holder.clMain.setOnClickListener {
-            itemClickEvent.onClick(position)
+            itemClickEvent.onClick(position, holder.ivImage as View)
         }
     }
 

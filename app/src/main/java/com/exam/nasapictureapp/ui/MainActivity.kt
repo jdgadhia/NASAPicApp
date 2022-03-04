@@ -16,6 +16,8 @@ import com.exam.nasapictureapp.interfaces.ItemClickEvent
 import com.exam.nasapictureapp.model.ImagesDetails
 import com.exam.nasapictureapp.viewmodels.ImagesViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import androidx.core.app.ActivityOptionsCompat
+
 
 class MainActivity : AppCompatActivity(), ItemClickEvent {
     lateinit var binding: ActivityMainBinding
@@ -66,11 +68,15 @@ class MainActivity : AppCompatActivity(), ItemClickEvent {
     }
 
     // Click event handle of recycler view
-    override fun onClick(position: Int) {
+    override fun onClick(position: Int, viewTransition: View) {
         val intent = Intent(this@MainActivity, ImageDetailsActivity::class.java)
         intent.putExtra("position", position)
         val listData = provideGson().toJson(imagesViewModel.getImageList())
         intent.putExtra("images", listData)
-        startActivity(intent)
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+            this@MainActivity,
+            viewTransition, "nasa_image"
+        )
+        startActivity(intent, options.toBundle())
     }
 }

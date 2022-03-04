@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">NASA Picture App</string>
     <string name="no_data_found">No data found</string>
+    <string name="nasa_images">NASA Images</string>
+    <string name="image_details">Image Details</string>
 </resources>

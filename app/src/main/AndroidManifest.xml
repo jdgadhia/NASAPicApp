@@ -12,10 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NASAPictureApp">
         <activity
-            android:name=".ui.ImageDetailsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -24,6 +21,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.ImageDetailsActivity"
+            android:label="@string/image_details"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ActionBarNASAPictureApp" />
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:label="@string/nasa_images"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ActionBarNASAPictureApp" />
+
     </application>
 
 </manifest>

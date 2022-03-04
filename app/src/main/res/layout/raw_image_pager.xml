@@ -21,13 +21,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/ivImage"
+                <FrameLayout
+                    android:id="@+id/flImage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/animationView"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        app:lottie_rawRes="@raw/loading" />
+
+                    <ImageView
+                        android:id="@+id/ivImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:transitionName="nasa_image" />
+                </FrameLayout>
+
 
                 <TextView
                     android:id="@+id/tvName"
@@ -38,7 +54,7 @@
                     android:padding="6dp"
                     android:textColor="@color/white"
                     android:textSize="18sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/ivImage" />
+                    app:layout_constraintBottom_toBottomOf="@+id/flImage" />
 
                 <TextView
                     android:id="@+id/tvDate"

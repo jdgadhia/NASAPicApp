@@ -9,6 +9,8 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.request.target.Target.SIZE_ORIGINAL
 import com.exam.nasapictureapp.R
 import com.exam.nasapictureapp.interfaces.ItemClickEvent
 import com.exam.nasapictureapp.model.ImagesDetails
@@ -24,11 +26,18 @@ class ImagePagerAdepter(
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        Glide.with(activity).load(images[position].hdurl).into(holder.ivImage)
+        Glide.with(activity)
+            .load(images[position].hdurl)
+            .into(holder.ivImage)
         holder.tvDate.text = images[position].date
         holder.tvName.text = images[position].title
         holder.tvInfo.text = images[position].explanation
-        holder.tvCopyRight.text = images[position].copyright
+        if (images[position].copyright.isNullOrEmpty()) {
+            holder.tvCopyRight.visibility = View.GONE
+        } else {
+            holder.tvCopyRight.visibility = View.VISIBLE
+            holder.tvCopyRight.text = images[position].copyright
+        }
 
     }
 
