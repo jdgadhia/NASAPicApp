@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        android:elevation="8dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/ivImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/half_transperent"
+                    android:fontFamily="@font/helvetica_bold"
+                    android:padding="6dp"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivImage" />
+
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:drawablePadding="8dp"
+                    android:fontFamily="@font/helvetica_regular"
+                    android:padding="6dp"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:drawableStartCompat="@drawable/ic_date"
+                    app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+                <TextView
+                    android:id="@+id/tvInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="8dp"
+                    android:fontFamily="@font/helvetica_regular"
+                    android:gravity="top"
+                    android:padding="6dp"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:drawableStartCompat="@drawable/ic_info"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDate" />
+
+                <TextView
+                    android:id="@+id/tvCopyRight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="8dp"
+                    android:fontFamily="@font/helvetica_regular"
+                    android:padding="6dp"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:drawableStartCompat="@drawable/ic_copyright"
+                    app:layout_constraintTop_toBottomOf="@+id/tvInfo" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

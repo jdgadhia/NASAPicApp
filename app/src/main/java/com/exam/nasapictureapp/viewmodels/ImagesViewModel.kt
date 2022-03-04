@@ -18,6 +18,7 @@ class ImagesViewModel(
 ) : ViewModel() {
 
     private val fileName = MutableLiveData<String>()
+    private lateinit var imagesList: ArrayList<ImagesDetails>
 
     fun getImagesList(name: String) {
         fileName.value = name
@@ -44,5 +45,13 @@ class ImagesViewModel(
 
     private fun stringToDate(strDate: String): Date {
         return SimpleDateFormat("yyyy-MM-dd").parse(strDate)
+    }
+
+    fun setImageList(imagesList: ArrayList<ImagesDetails>) {
+        this.imagesList = imagesList
+    }
+
+    fun getImageList(): ArrayList<ImagesDetails> {
+        return imagesList
     }
 }

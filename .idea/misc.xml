@@ -3,8 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Interview/NASAPicApp/app/src/main/res/drawable/ic_copyright.xml" value="0.2635416666666667" />
+        <entry key="..\:/Interview/NASAPicApp/app/src/main/res/drawable/ic_date.xml" value="0.2635416666666667" />
+        <entry key="..\:/Interview/NASAPicApp/app/src/main/res/drawable/ic_info.xml" value="0.2635416666666667" />
+        <entry key="..\:/Interview/NASAPicApp/app/src/main/res/layout/activity_image_details.xml" value="0.24739583333333334" />
         <entry key="..\:/Interview/NASAPicApp/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Interview/NASAPicApp/app/src/main/res/layout/raw_image_grid.xml" value="0.264" />
+        <entry key="..\:/Interview/NASAPicApp/app/src/main/res/layout/raw_image_pager.xml" value="0.264" />
       </map>
     </option>
   </component>

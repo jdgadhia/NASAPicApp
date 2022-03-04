@@ -13,24 +13,23 @@ import com.exam.nasapictureapp.R
 import com.exam.nasapictureapp.interfaces.ItemClickEvent
 import com.exam.nasapictureapp.model.ImagesDetails
 
-class ImageGridAdepter(
+class ImagePagerAdepter(
     private val activity: Activity,
-    private var images: ArrayList<ImagesDetails>,
-    private val itemClickEvent: ItemClickEvent
-) : RecyclerView.Adapter<ImageGridAdepter.MyViewHolder>() {
+    private var images: ArrayList<ImagesDetails>
+) : RecyclerView.Adapter<ImagePagerAdepter.MyViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView: View =
-            LayoutInflater.from(activity).inflate(R.layout.raw_image_grid, parent, false)
+            LayoutInflater.from(activity).inflate(R.layout.raw_image_pager, parent, false)
         return MyViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        Glide.with(activity).load(images[position].url).into(holder.ivImage)
+        Glide.with(activity).load(images[position].hdurl).into(holder.ivImage)
         holder.tvDate.text = images[position].date
+        holder.tvName.text = images[position].title
+        holder.tvInfo.text = images[position].explanation
+        holder.tvCopyRight.text = images[position].copyright
 
-        holder.clMain.setOnClickListener {
-            itemClickEvent.onClick(position)
-        }
     }
 
     override fun getItemCount(): Int {
@@ -41,7 +40,9 @@ class ImageGridAdepter(
         RecyclerView.ViewHolder(view) {
         var ivImage: ImageView = view.findViewById(R.id.ivImage)
         var tvDate: TextView = view.findViewById(R.id.tvDate)
-        var clMain: ConstraintLayout = view.findViewById(R.id.clMain)
+        var tvName: TextView = view.findViewById(R.id.tvName)
+        var tvInfo: TextView = view.findViewById(R.id.tvInfo)
+        var tvCopyRight: TextView = view.findViewById(R.id.tvCopyRight)
     }
 
 }
